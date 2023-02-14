@@ -11,6 +11,9 @@ module.exports = {
         dark: "#171717",
         dark_light: "#1e1e1e",
       },
+      height: {
+        128: "32rem",
+      },
     },
   },
   plugins: [],

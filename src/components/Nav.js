@@ -1,32 +1,30 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { Text, TextInput, View } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { MagnifyingGlassIcon, HomeIcon } from "react-native-heroicons/solid";
 
 export const Nav = ({}) => {
-  const [menuActive, setMenuActive] = useState(true);
+  const navigation = useNavigation();
+
   return (
-    <View className="h-16 flex-cols">
-      <View className="flex-1 flex-row">
-        <View className="flex-1">
-          <Text className="text-white text-lg font-bold">Movies</Text>
+    <View className="h-20 bg-dark flex-row items-start justify-center">
+      <View className="flex-row h-1/2 flex-1 items-center justify-between mx-5 mt-1">
+        <View className="flex items-center justify-center">
+          <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+            <HomeIcon size={25} color="white" />
+          </TouchableOpacity>
         </View>
-        <View>
-          <Text className="text-white text-lg font-bold">M</Text>
+        <View className="flex items-center justify-center">
+          <TouchableOpacity onPress={() => navigation.navigate("Search")}>
+            <MagnifyingGlassIcon size={25} color="white" />
+          </TouchableOpacity>
+        </View>
+        <View className="flex items-center justify-center">
+          <TouchableOpacity onPress={() => navigation.navigate("Discover")}>
+            <MagnifyingGlassIcon size={25} color="white" />
+          </TouchableOpacity>
         </View>
       </View>
-      <View className="flex-1">
-        <TextInput
-          placeholder="Search movie titles"
-          className="bg-white rounded-full  p-2"
-        ></TextInput>
-      </View>
-      {/**Menu */}
-      {menuActive && (
-        <View className="absolute top-0 bottom-0 left-0 right-0 bg-dark">
-          <View>
-            <Text className="text-white text-lg font-bold">Md</Text>
-          </View>
-        </View>
-      )}
     </View>
   );
 };

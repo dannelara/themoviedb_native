@@ -1,17 +1,41 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, Text, View } from "react-native";
-import { Nav } from "./src/components/Nav";
+
 import { Home } from "./src/screens/Home";
-// import { createDrawerNavigator } from "@react-navigation/drawer";
-// import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Nav } from "./src/components/Nav";
+import { Discover } from "./src/screens/Discover";
+import { Search } from "./src/screens/Search";
+import { Movie } from "./src/screens/Movie";
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView className="flex-1 bg-dark_light pt-5 relative">
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ title: "Welcome" }}
+        />
+        <Stack.Screen
+          name="Search"
+          component={Search}
+          options={{ title: "Search" }}
+        />
+        <Stack.Screen
+          name="Discover"
+          component={Discover}
+          options={{ title: "Discover" }}
+        />
+        <Stack.Screen
+          name="Movie"
+          component={Movie}
+          options={{ title: "Movie" }}
+        />
+      </Stack.Navigator>
       <Nav />
-      {/* <View className="mx-2">
-        <Home />
-      </View> */}
-    </SafeAreaView>
+    </NavigationContainer>
   );
 }
