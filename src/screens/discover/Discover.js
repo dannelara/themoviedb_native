@@ -38,7 +38,7 @@ export const Discover = ({}) => {
     (async () => {
       try {
         const { genres } = await API.fetch_data("/genre/movie/list");
-
+        handleGenreSelected(genres[0].id);
         setGenres(genres);
       } catch (error) {
         console.log(error);
@@ -58,8 +58,11 @@ export const Discover = ({}) => {
           className="mt-4 mx-2"
         >
           {genres.map((genre, key) => (
-            <TouchableOpacity onPress={() => handleGenreSelected(genre.id)}>
-              <Card key={key} name={genre.name} />
+            <TouchableOpacity
+              key={key}
+              onPress={() => handleGenreSelected(genre.id)}
+            >
+              <Card name={genre.name} />
             </TouchableOpacity>
           ))}
         </ScrollView>

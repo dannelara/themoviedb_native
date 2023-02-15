@@ -25,7 +25,6 @@ export const Search = ({}) => {
       }
 
       try {
-        console.log(query);
         const { results } = await API.fetch_data(
           "/search/movie",
           `&query=${query.toString()}`
