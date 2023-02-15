@@ -1,12 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import * as API from "../fetch/fetch";
-import { View, Text, SafeAreaView, ScrollView } from "react-native";
-import { Section } from "../components/Section";
-import { MovieCard } from "../components/MovieCard";
+import * as API from "fetch/fetch";
+import { View, SafeAreaView, ScrollView } from "react-native";
+import { Section, MovieCard } from "components";
 
 export const Home = ({}) => {
   const navigation = useNavigation();
+
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [nowPlaying, setNowPlaying] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -34,9 +34,9 @@ export const Home = ({}) => {
   }, []);
 
   return (
-    <SafeAreaView className="bg-dark_light">
+    <SafeAreaView className="bg-dark_light flex-1">
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View>
+        <View className="mt-2 mb-2">
           <Section title="Trending">
             {trendingMovies.map((movie, key) => (
               <MovieCard key={key} movie={movie} />

@@ -10,6 +10,7 @@ module.exports = {
       backgroundColor: {
         dark: "#171717",
         dark_light: "#1e1e1e",
+        dark_gradient: "rgba(23, 23, 23, 0.63)",
       },
       height: {
         128: "32rem",

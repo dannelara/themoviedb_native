@@ -1,13 +1,8 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, Text, View } from "react-native";
-
-import { Home } from "./src/screens/Home";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Nav } from "./src/components/Nav";
-import { Discover } from "./src/screens/Discover";
-import { Search } from "./src/screens/Search";
-import { Movie } from "./src/screens/Movie";
+import { Nav } from "components";
+import { Home, Discover, Search, Movie } from "screens";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {

@@ -6,20 +6,22 @@ export const MovieCard = ({ movie }) => {
 
   return (
     <TouchableOpacity
-      className="relative h-44 w-32 m-1 rounded-sm"
+      className="relative h-56 w-40 m-1 rounded-sm"
       onPress={() => {
         navigation.navigate("Movie", {
           id: movie.id,
         });
       }}
     >
-      <Text>{movie.title}</Text>
       <Image
-        className="absolute h-full w-full rounded-sm"
+        className="h-full w-full rounded-sm"
         source={{
           uri: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
         }}
       ></Image>
+      <View className="absolute bottom-0 left-0 h-14 w-full bg-[#0000006c] items-start justify-center">
+        <Text className="text-white text-base ml-2">{movie.title}</Text>
+      </View>
     </TouchableOpacity>
   );
 };

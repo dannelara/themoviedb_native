@@ -1,23 +1,14 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useEffect, useLayoutEffect, useState } from "react";
-import {
-  Image,
-  ImageBackground,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import {
   StarIcon,
   ArrowLeftIcon,
   CalendarIcon,
 } from "react-native-heroicons/solid";
-import { Card } from "../components/Card";
-// import YouTube from "react-native-youtube";
+import { Card } from "components";
+import * as API from "fetch/fetch";
 
-import * as API from "../fetch/fetch";
 export const Movie = ({}) => {
   const navigation = useNavigation();
   const {
@@ -26,6 +17,7 @@ export const Movie = ({}) => {
 
   const [cast, setCast] = useState([]);
   const [movie, setMovie] = useState({});
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -42,14 +34,13 @@ export const Movie = ({}) => {
     })();
   }, []);
   return (
-    // <SafeAreaView className="flex-1 bg-dark_light">
     <ScrollView
-      className="bg-dark_light gap-3"
+      className="bg-dark_light flex-1 gap-4"
       showsVerticalScrollIndicator={false}
     >
       <View className="relative">
         <View className="h-[500]">
-          <ImageBackground
+          <Image
             className=" w-full h-full"
             source={{
               uri: `https://image.tmdb.org/t/p/original/${movie.poster_path}`,
@@ -73,14 +64,14 @@ export const Movie = ({}) => {
 
           <View className="flex-row gap-5 mt-1 mb-1">
             <View className="flex-row ">
-              <StarIcon color={"gold"} />
+              <StarIcon color="gold" />
               <Text className="text-white text-lg font-bold">
                 {movie.vote_average}
               </Text>
             </View>
 
             <View className="flex-row">
-              <CalendarIcon color={"gold"} />
+              <CalendarIcon color="gold" />
               <Text className="text-white text-lg font-bold">
                 {movie.release_date}
               </Text>
@@ -99,7 +90,7 @@ export const Movie = ({}) => {
             showsHorizontalScrollIndicator={false}
           >
             {movie.genres?.map((genre, key) => (
-              <Card key={key} name={genre.name} color="gold" />
+              <Card key={key} name={genre.name} />
             ))}
           </ScrollView>
 
