@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "app_v1",
-    "slug": "app_v1",
+    "name": "themoviedb",
+    "slug": "themovie-db",
+    "description": "This is a test app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,11 +15,10 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.slowman1.themoviedb"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "59ce0b4c-035a-4d7a-8a68-1101077fa7ef"
+      }
+    },
+    "owner": "slowman1"
   }
 }
